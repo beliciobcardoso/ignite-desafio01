@@ -15,6 +15,21 @@ export const routes = [
     },
   },
   {
+    method: 'GET',
+    path: buildRoutePath('/tasks/:id'),
+    handler: async (req, res) => {
+      const { id } = req.params;
+
+      if (!database.exists('tasks', id)) {
+        return res.writeHead(404).end('Task not found');
+      }
+
+      const task = database.selectOne('tasks', id);
+
+      return res.end(JSON.stringify(task));
+    },
+  },
+  {
     method: 'POST',
     path: buildRoutePath('/tasks'),
     handler: async (req, res) => {
@@ -63,13 +78,29 @@ export const routes = [
 
       const { title, description } = req.body;
 
+      const tasks = database.selectOne('tasks', id);
+
       if (!database.exists('tasks', id)) {
         return res.writeHead(404).end('Task not found');
+      }
+
+      if (title === '') {
+        return res.writeHead(404).end('Field title is required');
+      }
+
+      if (description === '') {
+        return res.writeHead(404).end('Field description is required');
+      }
+
+      if (tasks.completed_at !== null) {
+        return res.writeHead(400).end('Task already completed');
       }
 
       database.update('tasks', id, {
         title,
         description,
+        created_at: tasks.created_at,
+        completed_at: tasks.completed_at,
         updated_at: new Date().toISOString(),
       });
 
@@ -86,15 +117,21 @@ export const routes = [
         return res.writeHead(404).end('Task not found');
       }
 
-      if (database.select('tasks', id).completed_at) {
-        return res.writeHead(400).end('Task already completed');
+      if (database.selectOne('tasks', id).completed_at === null) {
+        const tasks = database.selectOne('tasks', id);
+
+        database.update('tasks', id, {
+          title: tasks.title,
+          description: tasks.description,
+          created_at: tasks.created_at,
+          completed_at: new Date().toISOString(),
+          updated_at: tasks.updated_at,
+        });
+
+        return res.writeHead(200).end();
       }
 
-      database.update('tasks', id, {
-        completed_at: new Date().toISOString(),
-      });
-
-      return res.writeHead(204).end();
+      return res.writeHead(400).end('Task already completed');
     },
   },
 ];
