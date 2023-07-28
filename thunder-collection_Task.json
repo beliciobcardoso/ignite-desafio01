@@ -1,0 +1,103 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Task",
+    "dateExported": "2023-07-28T20:47:53.418Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "a0db8ae5-763d-446c-b20b-c70d287a4b71",
+            "colId": "690ed16f-e286-41f4-9de6-1135cb6689c5",
+            "containerId": "",
+            "name": "GET TASK",
+            "url": "http://localhost:3000/tasks",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-07-28T18:54:42.878Z",
+            "modified": "2023-07-28T18:55:11.919Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "b208c1f2-1f11-4618-92fd-a7f0269bd306",
+            "colId": "690ed16f-e286-41f4-9de6-1135cb6689c5",
+            "containerId": "",
+            "name": "POST TASK",
+            "url": "http://localhost:3000/tasks",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-07-28T18:55:21.202Z",
+            "modified": "2023-07-28T20:19:01.497Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"Academia\",\n  \"description\": \"Malhar pernas\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "aadb4309-7665-4777-b635-a45c5a88d163",
+            "colId": "690ed16f-e286-41f4-9de6-1135cb6689c5",
+            "containerId": "",
+            "name": "DELETE TASK",
+            "url": "http://localhost:3000/tasks/32f26e6a-0a3a-47e5-bd13-b347357d4dec",
+            "method": "DELETE",
+            "sortNum": 30000,
+            "created": "2023-07-28T18:59:30.823Z",
+            "modified": "2023-07-28T20:22:21.757Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "49a5f5e3-e1be-4b94-a5f6-be08a8445dfa",
+            "colId": "690ed16f-e286-41f4-9de6-1135cb6689c5",
+            "containerId": "",
+            "name": "GET ONE TASK",
+            "url": "http://localhost:3000/tasks/1775ce41-4f7a-4353-a083-5431f3e0c841",
+            "method": "GET",
+            "sortNum": 35000,
+            "created": "2023-07-28T19:36:41.240Z",
+            "modified": "2023-07-28T20:19:34.664Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "80e1ffa7-0ef4-4b0c-aed9-3a353bf922e4",
+            "colId": "690ed16f-e286-41f4-9de6-1135cb6689c5",
+            "containerId": "",
+            "name": "PUT TASK",
+            "url": "http://localhost:3000/tasks/1775ce41-4f7a-4353-a083-5431f3e0c841",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2023-07-28T19:08:33.916Z",
+            "modified": "2023-07-28T20:20:26.614Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"Academia\",\n  \"description\": \"Malhar pernas e peito\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "cb40f4d0-3ebc-4ab3-b7b2-c3ffe26eff97",
+            "colId": "690ed16f-e286-41f4-9de6-1135cb6689c5",
+            "containerId": "",
+            "name": "PATCH TASK",
+            "url": "http://localhost:3000/tasks/1775ce41-4f7a-4353-a083-5431f3e0c841/complete",
+            "method": "PATCH",
+            "sortNum": 50000,
+            "created": "2023-07-28T19:18:21.024Z",
+            "modified": "2023-07-28T20:20:41.673Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
