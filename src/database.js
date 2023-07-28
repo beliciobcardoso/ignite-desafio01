@@ -41,10 +41,6 @@ export class Database {
   delete(table, id) {
     const rowIndex = this.#database[table].findIndex((row) => row.id === id);
 
-    if (rowIndex === -1) {
-      return false;
-    }
-
     this.#database[table].splice(rowIndex, 1);
     this.#pesist();
   }
@@ -52,12 +48,12 @@ export class Database {
   update(table, id, data) {
     const rowIndex = this.#database[table].findIndex((row) => row.id === id);
 
-    if (rowIndex === -1) {
-      return false;
-    }
-
     this.#database[table][rowIndex] = { id, ...data };
 
     this.#pesist();
+  }
+
+  exists(table, id) {
+    return this.#database[table].some((row) => row.id === id);
   }
 }
