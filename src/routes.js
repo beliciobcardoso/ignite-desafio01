@@ -1,3 +1,9 @@
+import { Database } from './database.js';
+import { randomUUID } from 'node:crypto';
+import { buildRoutePath } from './util/build-route-path.js';
+
+const database = new Database();
+
 export const routes = [
   {
     method: 'GET',
