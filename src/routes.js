@@ -34,7 +34,7 @@ export const routes = [
         description,
         created_at: new Date().toISOString(),
         completed_at: null,
-        updated_at: created_at,
+        updated_at: new Date().toISOString(),
       };
 
       database.insert('tasks', task);
