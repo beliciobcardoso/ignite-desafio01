@@ -22,7 +22,11 @@ export class Database {
 
   select(table) {
     const data = this.#database[table] ?? [];
+    return data;
+  }
 
+  selectOne(table, id) {
+    const data = this.#database[table].find((row) => row.id === id);
     return data;
   }
 
@@ -47,6 +51,9 @@ export class Database {
 
   update(table, id, data) {
     const rowIndex = this.#database[table].findIndex((row) => row.id === id);
+    // const { id: _, ...rest } = this.#database[table][rowIndex];
+
+    // console.log(rest.created_at);
 
     this.#database[table][rowIndex] = { id, ...data };
 
